@@ -62,6 +62,9 @@ app.get('/download/:ime', (request, response) => {
     
   });
 
+  app.get("/",  (req, res) => {
+    res.sendFile('/index.html')
+  })
 
 let server = app.listen(port, ()=> {
   console.log('Server running on port --> ' + server.address().port)
