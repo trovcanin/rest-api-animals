@@ -54,7 +54,7 @@ const getAllAnimal = (req, res) => {
 //GET 1 animal
 const getOneAnimal = (req, res) => {
   let name = req.params.name;
-  Animal.findOne({ name: name }, (err, data) => {
+  Animal.findOne({ common_name: name }, (err, data) => {
     if (err || !data) {
       return res.json(`Cannot find the ${name} ...`);
     } else return res.json(data);

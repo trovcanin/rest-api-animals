@@ -1,0 +1,15 @@
+body{
+    font-family: consolas;
+    margin:0 auto;
+    padding:10px;
+}
+.container{
+    display:flex;
+    justify-content: center;
+}
+h1{
+    font-weight:900;
+}
+
+
+

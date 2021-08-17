@@ -1,18 +1,24 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 const multer = require('multer');
 const routes = require('./routes/animal')
 const path = require('path');
+const dotenv = require('dotenv').config;
+const MONGO_URI = process.env.MONGO_URI;
 
 
 
 const mongoose = require('mongoose');
+const Animal = require('./models/animal');
 
 //establish connection to database
 mongoose.connect(
     'mongodb+srv://tariktarik:tarik1234@cluster0.ccbvw.mongodb.net/REST-API?retryWrites=true&w=majority',
-    { useFindAndModify: false, useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},
+    { useFindAndModify: false, 
+      useUnifiedTopology: true, 
+      useNewUrlParser: true, 
+      useCreateIndex: true},
     (err) => {
         if (err) return console.log("Error: ", err);
         console.log("MongoDB Connection -- Ready state is:", mongoose.connection.readyState);
@@ -41,21 +47,6 @@ const uploadImg = multer({storage: storage}).single('image');
 
 app.use('/', routes);
 
-
-//Download ANIMAL
-//------------------------------------------------------------
-// app.get('/animal-download', function (req, res) {
-//     var file = path.join(__dirname + '/uploads', 'koala.jpg');
-//     res.download(file, function (err) {
-//         if (err) {
-//             console.log('jebi se')
-//         } else {
-//             console.log("Hvala sto ste skinuli sliku zivotinje!");
-//         }
-//     });
-//  });
-//------------------------------------------------------------
-
 app.get('/download/:ime', (request, response) => {
     //let file = path.join(__dirname + '/uploads', `${request.params.ime}` + '.jpg')
     let file = path.join(__dirname + '/uploads', `${request.params.ime}`)
@@ -65,16 +56,14 @@ app.get('/download/:ime', (request, response) => {
       if(err) {
         console.log('Ne moze debilu!')
       } else {
-        console.log('Upjelo JEEEEEEEEE!')
+        console.log('Moze!')
       }
-    })
+    });
     
-    //end response?
-    
-    //response.json({echo : request.params.word})
-  })
+  });
 
 
 let server = app.listen(port, ()=> {
   console.log('Server running on port --> ' + server.address().port)
 })
+
