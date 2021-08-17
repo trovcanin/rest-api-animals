@@ -51,7 +51,7 @@ app.use('/', routes);
 app.get('/download/:ime', (request, response) => {
     //let file = path.join(__dirname + '/uploads', `${request.params.ime}` + '.jpg')
     let file = path.join(__dirname + '/uploads', `${request.params.ime}`)
-  // console.log(path + request.params.ime)
+  console.log(path + request.params.ime)
   console.log(file)
     response.download(file, function(err) {
       if(err) {
