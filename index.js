@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 const multer = require('multer');
 const routes = require('./routes/animal')
 const path = require('path');

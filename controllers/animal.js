@@ -51,16 +51,6 @@ const getAllAnimal = (req, res) => {
   });
 };
 
-//DELETE teas
-// const deleteAllTea = (req, res) => {
-//   Tea.deleteMany({}, (err) => {
-//     if (err) {
-//       return res.json("Something's wrong. Deletion failed.");
-//     }
-//     return res.json("All tea are deleted successfully... T^T");
-//   });
-// };
-
 //GET 1 animal
 const getOneAnimal = (req, res) => {
   let name = req.params.name;
@@ -71,44 +61,6 @@ const getOneAnimal = (req, res) => {
   });
 };
 
-//POST 1 tea comment
-// const newComment = (req, res) => {
-//   let name = req.params.name;
-//   let newComment = req.body.comment;
-
-//   const comment = {
-//     text: newComment,
-//     date: new Date(),
-//   };
-
-  //find the tea object
-//   Tea.findOne({ name: name }, (err, data) => {
-//     if (err || !data || !newComment) {
-//       return res.json(`Comment fail. ${name} tea doesn't exist.`);
-//     } else {
-//       //add to comments array of the tea object
-//       data.comments.push(comment);
-
-//       //save changes to db
-//       data.save((err) => {
-//         if (err) {
-//           return res.json("Something's wrong. Please contact admin.");
-//         }
-//         return res.json(data);
-//       });
-//     }
-//   });
-// };
-
-//DELETE 1 tea
-// const deleteOneTea = (req, res) => {
-//   let name = req.params.name;
-//   Tea.deleteOne({ name: name }, (err, data) => {
-//     if (err || !data) {
-//       return res.json(`${name} Tea doesn't exist in the first place.`);
-//     } else return res.json(`Goodbye. ${name} tea is deleted.`);
-//   });
-// };
 
 //export controller
 module.exports = {
