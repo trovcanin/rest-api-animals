@@ -31,6 +31,7 @@ app.use('/uploads', express.static('./uploads'));
 
 
 app.use('/uploads', express.static('./uploads'));
+app.use('/css', express.static('./css'));
 
 //MULTER STORAGE
 const storage = multer.diskStorage({
