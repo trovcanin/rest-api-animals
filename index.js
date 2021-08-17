@@ -63,7 +63,7 @@ app.get('/download/:ime', (request, response) => {
   });
 
   app.get("/",  (req, res) => {
-    res.sendFile('/index.html')
+    res.sendFile(__dirname + '/index.html')
   })
 
 let server = app.listen(port, ()=> {
