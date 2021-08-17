@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const multer = require('multer');
 const routes = require('./routes/animal')
 const path = require('path');
@@ -75,6 +75,6 @@ app.get('/download/:ime', (request, response) => {
   })
 
 
-let server = app.listen(()=> {
+let server = app.listen(port, ()=> {
   console.log('Server running on port --> ' + server.address().port)
 })
